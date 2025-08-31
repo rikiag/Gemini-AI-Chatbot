@@ -1,0 +1,189 @@
+.chat-container {
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chat-box {
+  transition: all 0.3s ease;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.message {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rounded-chat-form {
+  border-radius: 2rem;
+  overflow: hidden;
+  border: 1px solid #3b82f6;
+  background-color: transparent;
+}
+
+.dark .rounded-chat-form {
+  border-color: #60a5fa;
+}
+
+.rounded-input {
+  border-radius: 2rem 0 0 2rem !important;
+  border: none !important;
+  background-color: white;
+}
+
+.dark .rounded-input {
+  background-color: #1f2937;
+  color: white;
+}
+
+.rounded-button {
+  border-radius: 0 2rem 2rem 0 !important;
+  background-color: #3b82f6 !important;
+  border: none !important;
+  color: white !important;
+}
+
+.dark .rounded-button {
+  background-color: #2563eb !important;
+}
+
+.rounded-button:hover {
+  background-color: #2563eb !important;
+}
+
+.dark .rounded-button:hover {
+  background-color: #1d4ed8 !important;
+}
+
+/* Perbaikan margin pada avatar */
+.chat-image.avatar {
+  align-self: flex-end;
+  order: 2; /* avatar di render setelah bubble */
+  margin-top: 0.25rem;
+}
+
+.chat-start .chat-image.avatar {
+  align-self: flex-start;
+  order: 2;
+  margin-top: 0.25rem;
+}
+
+/* Typing indicator */
+.typing {
+  display: inline-flex;
+  gap: 4px;
+  vertical-align: middle;
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+  background: white; /* bisa diubah biar kontras */
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1.2s infinite;
+}
+
+.typing span:nth-child(1) {
+  animation-delay: 0s;
+}
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Base bubble style - rounded + glass effect */
+.bubble-user,
+.bubble-bot {
+  border-radius: 1.5rem;         /* lebih rounded */
+  padding: 0.75rem 1rem;         /* padding lebih lega */
+  backdrop-filter: blur(12px);   /* efek blur belakang */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* garis halus transparan */
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Light mode gradient */
+.bubble-user {
+  background: linear-gradient(135deg, rgba(56,189,248,0.85), rgba(125,211,252,0.85));
+  color: #1e1e1e;
+  box-shadow: 0 4px 10px rgba(14, 165, 233, 0.3);
+}
+
+.bubble-bot {
+  background: linear-gradient(135deg, rgba(129,140,248,0.85), rgba(165,180,252,0.85));
+  color: #1e1e1e;
+  box-shadow: 0 4px 10px rgba(165, 180, 252, 0.3);
+}
+
+/* Dark mode gradient */
+.dark .bubble-user {
+  background: linear-gradient(135deg, rgba(14,165,233,0.8), rgba(56,189,248,0.8));
+  color: #f9fafb;
+  box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4);
+}
+
+.dark .bubble-bot {
+  background: linear-gradient(135deg, rgba(99,102,241,0.8), rgba(129,140,248,0.8));
+  color: #f9fafb;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4);
+}
+
+/* Hover efek lebih hidup */
+.bubble-user:hover,
+.bubble-bot:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+/* Animasi masuk dengan gelombang */
+.message {
+  animation: fadeIn 0.3s ease-in, waveIn 0.4s ease-out;
+}
+
+@keyframes waveIn {
+  0% {
+    transform: scale(0.9) translateY(8px) rotate(-2deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.03) translateY(-2px) rotate(1deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}

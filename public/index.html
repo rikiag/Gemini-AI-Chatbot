@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini AI Chatbot</title>
+    <!-- Tailwind CSS 4 via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI 5 via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-base-100">
+    <div class="container mx-auto px-4 py-6 max-w-4xl chat-container">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-primary flex items-center gap-2">
+                <i class="fas fa-robot"></i> Gemini AI Chatbot
+            </h1>
+            <button id="theme-toggle" class="btn btn-circle btn-ghost">
+                <i class="fas fa-moon text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chat-box" class="chat-box bg-base-200 rounded-box p-4 flex-grow overflow-y-auto mb-4 h-96 centered">
+            <div id="welcome-message" class="text-center">
+                <div class="bg-primary/10 p-6 rounded-2xl shadow-lg max-w-md">
+                    <i class="fas fa-robot text-5xl text-primary mb-4"></i>
+                    <h2 class="text-2xl font-bold mb-2">Hello! I'm Gemini AI</h2>
+                    <p class="text-base-content/70">How can I assist you today?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Form -->
+        <form id="chat-form" class="flex rounded-chat-form shadow-md">
+            <input type="text" id="user-input" placeholder="Type your message..."
+                class="input flex-grow rounded-input py-4 px-6" autocomplete="off" required />
+            <button type="submit" class="btn rounded-button px-6">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
