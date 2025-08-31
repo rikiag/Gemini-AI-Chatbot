@@ -47,7 +47,7 @@
 
  2.  **Navigate to the project directory:**
      ```bash
-     cd Gemini-API
+     cd Gemini-AI-Chatbot
      ```
 
  3.  **Install dependencies:**
